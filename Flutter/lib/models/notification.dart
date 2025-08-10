@@ -43,7 +43,7 @@ class MaintenanceNotification {
       auszt: json['Auszt'] ?? '',
       artyp: json['Artyp'] ?? '',
       qmtxt: json['Qmtxt'] ?? '',
-      prioK: json['PrioK'] ?? '',
+      prioK: json['Priok'] ?? json['PrioK'] ?? '',
       arbplwerk: json['Arbplwerk'] ?? '',
       status: json['Status'] ?? '',
     );
@@ -52,13 +52,17 @@ class MaintenanceNotification {
   String get priorityText {
     switch (prioK) {
       case '1':
-        return 'High';
+        return 'Very high';
       case '2':
-        return 'Medium';
+        return 'High';
       case '3':
+        return 'Medium';
+      case '4':
         return 'Low';
+      case '':
+        return 'Not set';
       default:
-        return 'Unknown';
+        return 'Not set';
     }
   }
 
